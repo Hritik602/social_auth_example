@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sample_social_auth/app/app.bottomsheets.dart';
 import 'package:sample_social_auth/app/app.dialogs.dart';
 import 'package:sample_social_auth/app/app.locator.dart';
+import 'package:sample_social_auth/app/app.router.dart';
 import 'package:sample_social_auth/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -10,6 +11,7 @@ import 'package:social_auth_pkg/src/google-auth/google_auth.dart';
 
 class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
+  final _navigationService = locator<NavigationService>();
   final _bottomSheetService = locator<BottomSheetService>();
 
   String get counterLabel => 'Counter is: $_counter';
@@ -37,24 +39,11 @@ class HomeViewModel extends BaseViewModel {
     );
   }
 
-  GoogleResponse? _googleResponse;
-  GoogleResponse? get googleResponse => _googleResponse;
-  setGoogleResponse(GoogleResponse response) {
-    _googleResponse = response;
-    notifyListeners();
+  void onTapGoogleSignIn() {
+    _navigationService.navigateToGoogleAuthView();
   }
 
-  onClickGoogle() async {
-    GoogleResponse? response = await GoogleAuth().signInWithGoogle();
-    debugPrint("Google auth error-> ${response.error}");
-    setGoogleResponse(response);
-  }
-
-  onClickSignOut() async {
-    bool value = await GoogleAuth().signOut();
-    if (value) {
-      _googleResponse = null;
-    }
-    notifyListeners();
+  void onTapFacebookSignIn() {
+    _navigationService.navigateToFacebookAuthView();
   }
 }

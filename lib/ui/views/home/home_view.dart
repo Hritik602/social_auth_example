@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sample_social_auth/ui/views/home/widgets/goole_response_container.dart';
+
 import 'package:stacked/stacked.dart';
-import 'package:provider/provider.dart';
+
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
@@ -25,17 +25,16 @@ class HomeView extends StackedView<HomeViewModel> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const GoogleResponseView(),
                 ElevatedButton(
                     onPressed: () {
-                      viewModel.onClickGoogle();
+                      viewModel.onTapGoogleSignIn();
                     },
-                    child: const Text("Google")),
+                    child: const Text("Google SignIn")),
                 ElevatedButton(
                     onPressed: () {
-                      viewModel.onClickSignOut();
+                      viewModel.onTapFacebookSignIn();
                     },
-                    child: const Text("Sign out"))
+                    child: const Text("Facebook SignIn"))
               ],
             ),
           ),
