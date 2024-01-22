@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sample_social_auth/ui/views/home/home_viewmodel.dart';
+import 'package:sample_social_auth/ui/views/google_auth/google_auth_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
-class GoogleResponseView extends ViewModelWidget<HomeViewModel> {
+class GoogleResponseView extends ViewModelWidget<GoogleAuthViewModel> {
   const GoogleResponseView({super.key});
 
   @override
