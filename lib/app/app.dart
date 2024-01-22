@@ -4,13 +4,17 @@ import 'package:sample_social_auth/ui/views/home/home_view.dart';
 import 'package:sample_social_auth/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:sample_social_auth/ui/views/facebook_auth/facebook_auth_view.dart';
+import 'package:sample_social_auth/ui/views/google_auth/google_auth_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: FacebookAuthView),
+    MaterialRoute(page: GoogleAuthView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),
